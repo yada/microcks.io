@@ -54,7 +54,7 @@ jobs:
       - name: Check broken links
         uses: ruzickap/action-my-broken-link-checker@v2
         with:
-          url: http://localhost:8888/
+          url: http://127.0.0.1:8888/
           cmd_params: '--buffer-size=8192 --max-connections=10 --color=always --header="User-Agent:curl/7.54.0" --timeout=20'
       
       # Stop the Hugo server at the end of the workflow as is running in the background
