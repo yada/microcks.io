@@ -50,6 +50,24 @@ jobs:
             exit 1
           fi
 
+      # Step to install Muffet link checker tool in case it is not already installed
+      - name: Check or install Muffet
+        run: |
+          if ! command -v muffet &> /dev/null; then
+            echo "Muffet not found, installing..."
+            if [ "${{ env.MUFFET_VERSION }}" = "latest" ]; then
+              MUFFET_URL=$(wget -qO- https://api.github.com/repos/raviqqe/muffet/releases/latest | grep "browser_download_url.*muffet_linux_amd64.tar.gz" | cut -d \" -f 4)
+            else
+              MUFFET_URL="https://github.com/raviqqe/muffet/releases/download/v${{ env.MUFFET_VERSION }}/muffet_linux_amd64.tar.gz"
+            fi
+            wget -qO- "${MUFFET_URL}" | tar xzf - -C /usr/local/bin/ muffet
+          else
+            echo "Muffet is already installed."
+          fi
+        env:
+            # Set the Muffet version to latest, you can specify a specific version using "0.1.0"
+            MUFFET_VERSION: "latest"
+
       # Check broken links in the Hugo site using my-broken-link-checker script
       - name: Check
         env:
