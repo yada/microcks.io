@@ -49,15 +49,25 @@ jobs:
             echo "::error::Hugo build failed, blocking commit..."
             exit 1
           fi
+          
+      # Check broken links in the Hugo site using my-broken-link-checker script
+      - name: Check
+        env:
+          INPUT_URL: http://127.0.0.1:8888/
+          #INPUT_PAGES_PATH: ./build/
+          # --skip-tls-verification is mandatory parameter when using https and "PAGES_PATH"
+          INPUT_CMD_PARAMS: '--buffer-size=8192 --max-connections=10 --color=always --header="User-Agent:curl/7.54.0" --skip-tls-verification'
+        run: wget -qO- https://raw.githubusercontent.com/ruzickap/action-my-broken-link-checker/v2/entrypoint.sh | bash
 
-      # Check broken links in the Hugo site using my-broken-link-checker
-      - name: Check broken links
-        uses: ruzickap/action-my-broken-link-checker@v2
-        with:
-          #url: http://127.0.0.1:8888/
-          url: https://microcks.io/
-          cmd_params: '--buffer-size=8192 --max-connections=10 --color=always --header="User-Agent:curl/7.54.0" --timeout=20'
-      
+      # Check broken links in the Hugo site using my-broken-link-checker docker
+      # - name: Check broken links
+      #   uses: ruzickap/action-my-broken-link-checker@v2
+      #   with:
+      #     #url: http://127.0.0.1:8888/
+      #     url: https://microcks.io/
+      #     cmd_params: '--exclude=(linkedin.com) --buffer-size=8192 --max-connections=10 --color=always --header="User-Agent:curl/7.54.0"'
+      #     debug: true
+
       # Stop the Hugo server at the end of the workflow as is running in the background
       - name: Stop Hugo server
         run: kill $(lsof -t -i:8888) || true
