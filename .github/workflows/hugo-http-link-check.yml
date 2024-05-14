@@ -73,7 +73,9 @@ jobs:
         env:
           URL: http://localhost:8888
           EXCLUDE: |
-            linkedin.com
+            https://fonts.gstatic.com/
+            https://use.fontawesome.com/
+            *.linkedin.com/*
             localhost:8080
             twitter.com
             github.com
