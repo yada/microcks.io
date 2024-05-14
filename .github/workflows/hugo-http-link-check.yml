@@ -67,14 +67,21 @@ jobs:
         env:
             # Set the Muffet version to latest, you can specify a specific version using "0.1.0"
             MUFFET_VERSION: "latest"
+            
+      - name: Read file contents
+        id: read-file
+        run: |
+          CONTENT=$(cat .lycheeignore)
+          EXCLUDE=$(echo "$CONTENT" | grep -v '^#' | grep -oE '[^/]+.[^/]+/$' | sed '/^[[:space:]]*$/d')
+          echo "EXCLUDE=$EXCLUDE" >> $GITHUB_ENV
 
       # Check broken links in the Hugo site using my-broken-link-checker script
       - name: Check
         env:
           URL: http://localhost:8888
           EXCLUDE: |
-            https://fonts.gstatic.com/
-            https://use.fontawesome.com/
+            fonts.gstatic.com
+            use.fontawesome.com
             *.linkedin.com/*
             localhost:8080
             twitter.com
