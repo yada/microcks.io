@@ -63,7 +63,7 @@ jobs:
           # --skip-tls-verification is mandatory parameter when using https and "PAGES_PATH"
           #INPUT_CMD_PARAMS: '--buffer-size=8192 --max-connections=10 --color=always --header="User-Agent:curl/7.54.0" --skip-tls-verification'
           #INPUT_CMD_PARAMS: '--verbose --buffer-size=8192 --max-connections=10 --color=always --header="User-Agent:curl/7.54.0"'
-          INPUT_CMD_PARAMS="--verbose --buffer-size=8192 --concurrency=10 --exclude=($( echo ${EXCLUDE} | tr ' ' '|' ))"
+          INPUT_CMD_PARAMS: "--verbose --buffer-size=8192 --concurrency=10 --exclude=($( echo ${EXCLUDE} | tr ' ' '|' ))"
         run: wget -qO- https://raw.githubusercontent.com/ruzickap/action-my-broken-link-checker/v2/entrypoint.sh | bash
 
       # Check broken links in the Hugo site using my-broken-link-checker docker
