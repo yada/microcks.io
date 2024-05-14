@@ -67,16 +67,17 @@ jobs:
         env:
             # Set the Muffet version to latest, you can specify a specific version using "0.1.0"
             MUFFET_VERSION: "latest"
-            
-      - name: Read file contents
-        id: read-file
+      
+      # Step to read the .lycheeignore file and set the exclude variable for Muffet link checker      
+      - name: Read .lycheeignore File And Set Exclude Variable
+        id: lychee-ignore
         run: |
           CONTENT=$(cat .lycheeignore)
-          EXCLUDE=$(echo "$CONTENT" | grep -v '^#' | grep -oE '[^/]+.[^/]+/$' | sed '/^[[:space:]]*$/d')
-          echo "EXCLUDE=$EXCLUDE" >> $GITHUB_ENV
+          echo "EXCLUDE=$(echo "$CONTENT" | grep -v '^#' | grep -oE '[^/]+.[^/]+/$' | sed '/^[[:space:]]*$/d')" >> $GITHUB_ENV
+        continue-on-error: true
 
-      # Check broken links in the Hugo site using my-broken-link-checker script
-      - name: Check
+      # Check broken links in the Hugo site using muffet script
+      - name: Check Broken Links With Muffet
         env:
           URL: http://localhost:8888
           EXCLUDE: |
