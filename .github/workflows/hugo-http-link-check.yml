@@ -81,7 +81,8 @@ jobs:
           # --skip-tls-verification is mandatory parameter when using https and "PAGES_PATH"
           #INPUT_CMD_PARAMS: '--buffer-size=8192 --max-connections=10 --color=always --header="User-Agent:curl/7.54.0" --skip-tls-verification'
           #INPUT_CMD_PARAMS: '--verbose --buffer-size=8192 --max-connections=10 --color=always --header="User-Agent:curl/7.54.0"'
-          INPUT_CMD_PARAMS: "--buffer-size=8192 --max-connections=10 --exclude=($( echo ${EXCLUDE} | tr ' ' '|' ))"
+          #INPUT_CMD_PARAMS: '--buffer-size=8192 --max-connections=10 --exclude=($( echo ${EXCLUDE} | tr ' ' '|' ))'
+          INPUT_CMD_PARAMS: '--buffer-size=8192 --max-connections=10'
           INPUT_DEBUG: "--debug=true"
           #run: wget -qO- https://raw.githubusercontent.com/ruzickap/action-my-broken-link-checker/v2/entrypoint.sh | bash
         run: muffet "${INPUT_CMD_PARAMS[@]}" "${INPUT_URL}" "${INPUT_DEBUG}" 
