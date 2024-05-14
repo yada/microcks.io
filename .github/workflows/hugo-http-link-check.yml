@@ -77,7 +77,7 @@ jobs:
             localhost:8080
             twitter.com
             github.com
-          ARGS: '--buffer-size=8192 --color=always'
+          ARGS: '--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=${EXCLUDE[@]}'
           #INPUT_CMD_PARAMS: '--buffer-size=8192 --max-connections=10 --color=always --header="User-Agent:curl/7.54.0" --skip-tls-verification'
           #INPUT_CMD_PARAMS: '--verbose --buffer-size=8192 --max-connections=10 --color=always --header="User-Agent:curl/7.54.0"'
           #INPUT_CMD_PARAMS: '--buffer-size=8192 --max-connections=10 --exclude=($( echo ${EXCLUDE} | tr ' ' '|' ))'
