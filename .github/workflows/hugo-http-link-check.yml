@@ -85,7 +85,10 @@ jobs:
       # Format the EXCLUDE-LYCHEE variable for Muffet link checker and store it in an environment variable 
       - name: Format Exclude Lychee
         id: format_exclude_lychee
-        run: echo "EXCLUDE_LYCHEE=${{ env.LYCHEE_IGNORE }} | tr '\n' '|' | sed 's/|$//'" >> $GITHUB_ENV
+        run: |
+          echo "content of ${{ env.LYCHEE_IGNORE }}: ${{ env.LYCHEE_IGNORE }}"
+          echo "EXCLUDE_LYCHEE=${{ env.LYCHEE_IGNORE }} | tr '\n' '|' | sed 's/|$//'" >> $GITHUB_ENV
+        continue-on-error: true
 
       # Format the date for the issue title and store it in an environment variable
       - name: Format Exclude Muffet
