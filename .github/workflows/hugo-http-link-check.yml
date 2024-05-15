@@ -71,8 +71,7 @@ jobs:
       # Step to read the .lycheeignore file and set the exclude variable for Muffet link checker      
       - name: Read .lycheeignore File And Set Exclude Variable
         id: lychee-ignore
-        run: |
-          echo "EXCLUDE=$(cat .lycheeignore | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')" >> $GITHUB_ENV
+        run: echo "LYCHEE-IGNORE=$(cat .lycheeignore | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')" >> $GITHUB_ENV
         continue-on-error: true
 
       # Check broken links in the Hugo site using muffet script
@@ -80,6 +79,7 @@ jobs:
         env:
           URL: http://localhost:8888
           EXCLUDE: |
+            ${{ env.LYCHEE-IGNORE }}
             fonts.gstatic.com
             use.fontawesome.com
             *.linkedin.com/*
