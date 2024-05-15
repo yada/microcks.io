@@ -76,7 +76,7 @@ jobs:
             while IFS= read -r line; do
               url=$(echo "$line" | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')
               if [ ! -z "$url" ]; then
-                echo -n "$url " >> $GITHUB_ENV
+                echo "$url" >> $GITHUB_ENV
               fi
             done < .lycheeignore
             echo "EoF" >> $GITHUB_ENV
@@ -85,12 +85,12 @@ jobs:
       # Format the EXCLUDE-LYCHEE variable for Muffet link checker and store it in an environment variable 
       - name: Format Exclude Lychee
         id: format_exclude_lychee
-        run: echo "EXCLUDE_LYCHEE=${{ env.LYCHEE_IGNORE }} | tr ' ' '|'"" >> $GITHUB_ENV
+        run: echo "EXCLUDE_LYCHEE=${{ env.LYCHEE_IGNORE }} | tr '\n' '|' | sed 's/|$//'" >> $GITHUB_ENV
 
       # Format the date for the issue title and store it in an environment variable
       - name: Format Exclude Muffet
         id: format_exclude_muffet
-        run: echo "EXCLUDE_MUFFET=$EXCLUDE_UPDATED | tr ' ' '|'" >> $GITHUB_ENV
+        run: echo "EXCLUDE_MUFFET=$EXCLUDE_UPDATED | tr '\n' '|' | sed 's/|$//'" >> $GITHUB_ENV
         env:
           EXCLUDE_UPDATED: |
             fonts.gstatic.com
