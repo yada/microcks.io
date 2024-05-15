@@ -72,17 +72,14 @@ jobs:
       - name: Read .lycheeignore File And Set Exclude Variable
         id: lychee-ignore
         run: | 
-          echo "LYCHEE-IGNORE=$(cat .lycheeignore)" >> $GITHUB_ENV
-          echo $LYCHEE-IGNORE
-
-          # echo "LYCHEE-IGNORE=" >> $GITHUB_ENV
-          # while IFS= read -r line; do
-          #   url=$(echo "$line" | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')
-          #   if [ ! -z "$url" ]; then
-          #     echo "$url" >> $GITHUB_ENV
-          #   fi
-          # done < .lycheeignore
-        
+          #echo "LYCHEE-IGNORE=" >> $GITHUB_ENV
+            while IFS= read -r line; do
+              url=$(echo "$line" | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')
+              if [ ! -z "$url" ]; then
+                #echo "LYCHEE-IGNORE=$url" >> $GITHUB_ENV
+                echo -n "LYCHEE-IGNORE=$(echo -n --exclude=$url)" >> $GITHUB_ENV
+              fi
+            done < .lycheeignore
           #echo "LYCHEE-IGNORE=$(cat .lycheeignore | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')" >> $GITHUB_ENV
         continue-on-error: true
 
