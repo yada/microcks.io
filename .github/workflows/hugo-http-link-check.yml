@@ -72,7 +72,7 @@ jobs:
       - name: Read .lycheeignore File And Set Exclude Variable
         id: lychee-ignore
         run: |
-          echo "EXCLUDE=$(cat .lycheeignore) | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}'| sed 's/\/$//'" >> $GITHUB_ENV
+          echo "EXCLUDE=$(cat .lycheeignore | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')" >> $GITHUB_ENV
         continue-on-error: true
 
       # Check broken links in the Hugo site using muffet script
