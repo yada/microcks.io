@@ -78,17 +78,22 @@ jobs:
               if [ ! -z "$url" ]; then
                 #echo "LYCHEE-IGNORE=$url" >> $GITHUB_ENV
                 #echo -n " --exclude=$url" >> $GITHUB_ENV
-                echo -n "$url" >> $GITHUB_ENV
+                echo -n " $url" >> $GITHUB_ENV
               fi
             done < .lycheeignore
           #echo "LYCHEE-IGNORE=$(cat .lycheeignore | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')" >> $GITHUB_ENV
         continue-on-error: true
 
-      # Check broken links in the Hugo site using muffet script
-      - name: Check Broken Links With Muffet
-        run: muffet ${ARGS} ${URL}
+      # Format the EXCLUDE-LYCHEE variable for Muffet link checker and store it in an environment variable 
+      - name: Format Exclude Lychee
+        id: format_exclude_lychee
+        run: echo "EXCLUDE-LYCHEE=$(echo ${{ env.LYCHEE-IGNORE }} | tr ' ' '|')" >> $GITHUB_ENV
+
+      # Format the date for the issue title and store it in an environment variable
+        - name: Format Exclude Muffet
+        id: format_exclude_muffet
+        run: echo "EXCLUDE-MUFFET=$(echo $EXCLUDE-UPDATED | tr ' ' '|')" >> $GITHUB_ENV
         env:
-          URL: "http://localhost:8888"
           EXCLUDE-UPDATED: |
             fonts.gstatic.com
             use.fontawesome.com
@@ -96,9 +101,23 @@ jobs:
             localhost:8080
             twitter.com
             github.com
-          EXCLUDE-LYCHEE: "$(echo ${{ env.LYCHEE-IGNORE }} | tr ' ' '|')"
-          EXCLUDE-MUFFET: "$(echo $EXCLUDE-UPDATED | tr ' ' '|')"
-          ARGS: '--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=$EXCLUDE-LYCHEE --exclude=$EXCLUDE'
+              
+      # Check broken links in the Hugo site using muffet script
+      - name: Check Broken Links With Muffet
+        run: muffet ${ARGS} ${URL}
+        env:
+          URL: "http://localhost:8888"
+          # EXCLUDE-UPDATED: |
+          #   fonts.gstatic.com
+          #   use.fontawesome.com
+          #   *.linkedin.com/*
+          #   localhost:8080
+          #   twitter.com
+          #   github.com
+
+          #EXCLUDE-LYCHEE: "$(echo ${{ env.LYCHEE-IGNORE }} | tr ' ' '|')"
+          #EXCLUDE-MUFFET: "$(echo $EXCLUDE-UPDATED | tr ' ' '|')"
+          ARGS: '--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=${{ env.EXCLUDE-LYCHEE }} --exclude=${{ env.EXCLUDE-MUFFET }}'
         continue-on-error: true
 
       # Check broken links in the Hugo site using my-broken-link-checker docker
