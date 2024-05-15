@@ -72,6 +72,8 @@ jobs:
       - name: Read .lycheeignore File And Set Exclude Variable
         id: lychee-ignore
         run: | 
+            # Environment Variable With Multi-Line Value, thanks to:
+            # https://medium.com/@ibraheemabukaff/github-actions-exporting-multi-line-one-line-value-environment-variable-5bb86d01e866
             echo "LYCHEE_IGNORE<<EoF" >> $GITHUB_ENV
             while IFS= read -r line; do
               url=$(echo "$line" | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')
@@ -80,7 +82,6 @@ jobs:
               fi
             done < .lycheeignore
             echo "EoF" >> $GITHUB_ENV
-        continue-on-error: true
 
       # # Format the EXCLUDE-LYCHEE variable for Muffet link checker and store it in an environment variable 
       # - name: Format Exclude Lychee
@@ -108,7 +109,7 @@ jobs:
           #export EXCLUDE-MUFFET: ${EXCLUDE_UPDATED} # | tr '\n' '|' | sed 's/|$//'
           #export ARGS: "--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=($( echo ${EXCLUDE_LYCHEE} | tr ' ' '|' )) --exclude=($( echo ${EXCLUDE_MUFFET} | tr ' ' '|' ))"
           #muffet ${ARGS} ${URL}
-          muffet --buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=($( echo ${EXCLUDE_LYCHEE} | tr ' ' '|' )) --exclude=($( echo ${EXCLUDE_MUFFET} | tr ' ' '|' ))
+          muffet --buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude="($( echo ${EXCLUDE_LYCHEE} | tr ' ' '|' ))" --exclude="($( echo ${EXCLUDE_MUFFET} | tr ' ' '|' ))" ${URL}
         env:
           EXCLUDE-LYCHEE: |
             ${{ env.LYCHEE_IGNORE }}
@@ -120,7 +121,7 @@ jobs:
             twitter.com
             github.com
           URL: "http://localhost:8888"
-        continue-on-error: true
+        #continue-on-error: true
 
       # Check broken links in the Hugo site using my-broken-link-checker docker
       # - name: Check broken links
