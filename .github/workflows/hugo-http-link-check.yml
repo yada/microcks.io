@@ -72,13 +72,14 @@ jobs:
       - name: Read .lycheeignore File And Set Exclude Variable
         id: lychee-ignore
         run: | 
-            echo "LYCHEE_IGNORE=" >> $GITHUB_ENV
+            echo "LYCHEE_IGNORE<<EoF" >> $GITHUB_ENV
             while IFS= read -r line; do
               url=$(echo "$line" | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')
               if [ ! -z "$url" ]; then
-                echo -n "$url " >> $GITHUB_ENV
+                echo "$url " >> $GITHUB_ENV
               fi
             done < .lycheeignore
+            echo "EoF" >> $GITHUB_ENV
         continue-on-error: true
 
       # Format the EXCLUDE-LYCHEE variable for Muffet link checker and store it in an environment variable 
