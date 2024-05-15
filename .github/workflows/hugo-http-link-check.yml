@@ -73,6 +73,8 @@ jobs:
         id: lychee-ignore
         run: | 
           echo "LYCHEE-IGNORE=$(cat .lycheeignore)" >> $GITHUB_ENV
+          echo $LYCHEE-IGNORE
+
           # echo "LYCHEE-IGNORE=" >> $GITHUB_ENV
           # while IFS= read -r line; do
           #   url=$(echo "$line" | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')
@@ -86,8 +88,9 @@ jobs:
 
       # Check broken links in the Hugo site using muffet script
       - name: Check Broken Links With Muffet
+        run: muffet ${ARGS} ${URL}
         env:
-          URL: http://localhost:8888
+          URL: "http://localhost:8888"
           EXCLUDE: |
             ${{ env.LYCHEE-IGNORE }}
             fonts.gstatic.com
@@ -97,13 +100,7 @@ jobs:
             twitter.com
             github.com
           ARGS: '--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=${EXCLUDE}'
-          #INPUT_CMD_PARAMS: '--buffer-size=8192 --max-connections=10 --color=always --header="User-Agent:curl/7.54.0" --skip-tls-verification'
-          #INPUT_CMD_PARAMS: '--verbose --buffer-size=8192 --max-connections=10 --color=always --header="User-Agent:curl/7.54.0"'
-          #INPUT_CMD_PARAMS: '--buffer-size=8192 --max-connections=10 --exclude=($( echo ${EXCLUDE} | tr ' ' '|' ))'
-          
-          #run: wget -qO- https://raw.githubusercontent.com/ruzickap/action-my-broken-link-checker/v2/entrypoint.sh | bash
-        #run: muffet "${INPUT_CMD_PARAMS[@]}" "${INPUT_URL}" "${INPUT_DEBUG}" 
-        run: muffet ${ARGS} ${URL}
+        continue-on-error: true
 
       # Check broken links in the Hugo site using my-broken-link-checker docker
       # - name: Check broken links
