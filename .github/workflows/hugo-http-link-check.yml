@@ -72,7 +72,7 @@ jobs:
       - name: Read .lycheeignore File And Set Exclude Variable
         id: lychee-ignore
         run: | 
-          echo "LYCHEE-IGNORE=" >> $GITHUB_ENV
+          echo "LYCHEE_IGNORE=" >> $GITHUB_ENV
             while IFS= read -r line; do
               url=$(echo "$line" | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')
               if [ ! -z "$url" ]; then
@@ -87,14 +87,14 @@ jobs:
       # Format the EXCLUDE-LYCHEE variable for Muffet link checker and store it in an environment variable 
       - name: Format Exclude Lychee
         id: format_exclude_lychee
-        run: echo "EXCLUDE-LYCHEE=${{ env.LYCHEE-IGNORE }} | tr ' ' '|'" >> $GITHUB_ENV
+        run: echo "EXCLUDE_LYCHEE=${{ env.LYCHEE_IGNORE }} | tr ' ' '|'" >> $GITHUB_ENV
 
       # Format the date for the issue title and store it in an environment variable
       - name: Format Exclude Muffet
         id: format_exclude_muffet
-        run: echo "EXCLUDE-MUFFET=$EXCLUDE-UPDATED | tr ' ' '|'" >> $GITHUB_ENV
+        run: echo "EXCLUDE_MUFFET=$EXCLUDE_UPDATED | tr ' ' '|'" >> $GITHUB_ENV
         env:
-          EXCLUDE-UPDATED: |
+          EXCLUDE_UPDATED: |
             fonts.gstatic.com
             use.fontawesome.com
             *.linkedin.com/*
@@ -117,7 +117,7 @@ jobs:
 
           #EXCLUDE-LYCHEE: "$(echo ${{ env.LYCHEE-IGNORE }} | tr ' ' '|')"
           #EXCLUDE-MUFFET: "$(echo $EXCLUDE-UPDATED | tr ' ' '|')"
-          ARGS: '--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=${{ env.EXCLUDE-LYCHEE }} --exclude=${{ env.EXCLUDE-MUFFET }}'
+          ARGS: '--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=${{ env.EXCLUDE_LYCHEE }} --exclude=${{ env.EXCLUDE_MUFFET }}'
         continue-on-error: true
 
       # Check broken links in the Hugo site using my-broken-link-checker docker
