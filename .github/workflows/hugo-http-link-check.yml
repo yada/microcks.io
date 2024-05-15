@@ -76,18 +76,15 @@ jobs:
             while IFS= read -r line; do
               url=$(echo "$line" | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')
               if [ ! -z "$url" ]; then
-                #echo "LYCHEE-IGNORE=$url" >> $GITHUB_ENV
-                #echo -n " --exclude=$url" >> $GITHUB_ENV
                 echo -n " $url" >> $GITHUB_ENV
               fi
             done < .lycheeignore
-          #echo "LYCHEE-IGNORE=$(cat .lycheeignore | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')" >> $GITHUB_ENV
         continue-on-error: true
 
       # Format the EXCLUDE-LYCHEE variable for Muffet link checker and store it in an environment variable 
       - name: Format Exclude Lychee
         id: format_exclude_lychee
-        run: echo "EXCLUDE_LYCHEE=${{ env.LYCHEE_IGNORE }} | tr ' ' '|'" >> $GITHUB_ENV
+        run: echo "EXCLUDE_LYCHEE=`echo ${{ env.LYCHEE_IGNORE }} | tr ' ' '|'`" >> $GITHUB_ENV
 
       # Format the date for the issue title and store it in an environment variable
       - name: Format Exclude Muffet
