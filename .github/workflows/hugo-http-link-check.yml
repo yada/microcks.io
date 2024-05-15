@@ -104,15 +104,19 @@ jobs:
       # Check broken links in the Hugo site using muffet script
       - name: Check Broken Links With Muffet
         run: |
-          export EXCLUDE-LYCHEE: ${LYCHEE_IGNORE} # | tr '\n' '|' | sed 's/|$//'
-          export EXCLUDE-MUFFET: ${EXCLUDE_UPDATED} # | tr '\n' '|' | sed 's/|$//'
+          #export EXCLUDE-LYCHEE: ${LYCHEE_IGNORE} # | tr '\n' '|' | sed 's/|$//'
+          #export EXCLUDE-MUFFET: ${EXCLUDE_UPDATED} # | tr '\n' '|' | sed 's/|$//'
           export ARGS: "--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=($( echo ${EXCLUDE_LYCHEE} | tr ' ' '|' )) --exclude=($( echo ${EXCLUDE_MUFFET} | tr ' ' '|' ))"
           muffet ${ARGS} ${URL}
         env:
           #export ARGS: "--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=($( echo ${EXCLUDE_MUFFET} | tr ' ' '|' ))"
           URL: "http://localhost:8888"
-          LYCHEE_IGNORE: ${{ env.LYCHEE_IGNORE }}
-          EXCLUDE-UPDATED: |
+          #LYCHEE_IGNORE: ${{ env.LYCHEE_IGNORE }}
+          EXCLUDE-LYCHEE: |
+            ${{ env.LYCHEE_IGNORE }}
+          # EXCLUDE-MUFFET: |
+          #   ${EXCLUDE_UPDATED}
+          EXCLUDE-MUFFET: |
             fonts.gstatic.com
             use.fontawesome.com
             *.linkedin.com/*
