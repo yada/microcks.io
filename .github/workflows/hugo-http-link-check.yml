@@ -87,12 +87,12 @@ jobs:
       # Format the EXCLUDE-LYCHEE variable for Muffet link checker and store it in an environment variable 
       - name: Format Exclude Lychee
         id: format_exclude_lychee
-        run: echo "EXCLUDE-LYCHEE=$(echo ${{ env.LYCHEE-IGNORE }} | tr ' ' '|')" >> $GITHUB_ENV
+        run: echo "EXCLUDE-LYCHEE=${{ env.LYCHEE-IGNORE }} | tr ' ' '|'" >> $GITHUB_ENV
 
       # Format the date for the issue title and store it in an environment variable
       - name: Format Exclude Muffet
         id: format_exclude_muffet
-        run: echo "EXCLUDE-MUFFET=$(echo $EXCLUDE-UPDATED | tr ' ' '|')" >> $GITHUB_ENV
+        run: echo "EXCLUDE-MUFFET=$EXCLUDE-UPDATED | tr ' ' '|'" >> $GITHUB_ENV
         env:
           EXCLUDE-UPDATED: |
             fonts.gstatic.com
