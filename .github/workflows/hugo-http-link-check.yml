@@ -78,7 +78,7 @@ jobs:
               if [ ! -z "$url" ]; then
                 #echo "LYCHEE-IGNORE=$url" >> $GITHUB_ENV
                 #echo -n " --exclude=$url" >> $GITHUB_ENV
-                echo "$url" >> $GITHUB_ENV
+                echo -n "$url" >> $GITHUB_ENV
               fi
             done < .lycheeignore
           #echo "LYCHEE-IGNORE=$(cat .lycheeignore | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')" >> $GITHUB_ENV
