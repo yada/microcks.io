@@ -106,16 +106,12 @@ jobs:
         run: |
           #export EXCLUDE-LYCHEE: ${LYCHEE_IGNORE} # | tr '\n' '|' | sed 's/|$//'
           #export EXCLUDE-MUFFET: ${EXCLUDE_UPDATED} # | tr '\n' '|' | sed 's/|$//'
-          export ARGS: "--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=($( echo ${EXCLUDE_LYCHEE} | tr ' ' '|' )) --exclude=($( echo ${EXCLUDE_MUFFET} | tr ' ' '|' ))"
-          muffet ${ARGS} ${URL}
+          #export ARGS: "--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=($( echo ${EXCLUDE_LYCHEE} | tr ' ' '|' )) --exclude=($( echo ${EXCLUDE_MUFFET} | tr ' ' '|' ))"
+          #muffet ${ARGS} ${URL}
+          muffet --buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=($( echo ${EXCLUDE_LYCHEE} | tr ' ' '|' )) --exclude=($( echo ${EXCLUDE_MUFFET} | tr ' ' '|' ))
         env:
-          #export ARGS: "--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=($( echo ${EXCLUDE_MUFFET} | tr ' ' '|' ))"
-          URL: "http://localhost:8888"
-          #LYCHEE_IGNORE: ${{ env.LYCHEE_IGNORE }}
           EXCLUDE-LYCHEE: |
             ${{ env.LYCHEE_IGNORE }}
-          # EXCLUDE-MUFFET: |
-          #   ${EXCLUDE_UPDATED}
           EXCLUDE-MUFFET: |
             fonts.gstatic.com
             use.fontawesome.com
@@ -123,6 +119,7 @@ jobs:
             localhost:8080
             twitter.com
             github.com
+          URL: "http://localhost:8888"
         continue-on-error: true
 
       # Check broken links in the Hugo site using my-broken-link-checker docker
