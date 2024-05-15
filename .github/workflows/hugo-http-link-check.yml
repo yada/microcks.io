@@ -90,7 +90,7 @@ jobs:
         run: echo "EXCLUDE-LYCHEE=$(echo ${{ env.LYCHEE-IGNORE }} | tr ' ' '|')" >> $GITHUB_ENV
 
       # Format the date for the issue title and store it in an environment variable
-        - name: Format Exclude Muffet
+      - name: Format Exclude Muffet
         id: format_exclude_muffet
         run: echo "EXCLUDE-MUFFET=$(echo $EXCLUDE-UPDATED | tr ' ' '|')" >> $GITHUB_ENV
         env:
