@@ -109,7 +109,7 @@ jobs:
           #export EXCLUDE-MUFFET: ${EXCLUDE_UPDATED} # | tr '\n' '|' | sed 's/|$//'
           #export ARGS: "--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=($( echo ${EXCLUDE_LYCHEE} | tr ' ' '|' )) --exclude=($( echo ${EXCLUDE_MUFFET} | tr ' ' '|' ))"
           #muffet ${ARGS} ${URL}
-          muffet --buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude="($( echo ${EXCLUDE_LYCHEE} | tr ' ' '|' ))" --exclude="($( echo ${EXCLUDE_MUFFET} | tr ' ' '|' ))" ${URL}
+          muffet --buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42 --exclude=($( echo ${EXCLUDE_LYCHEE} | tr ' ' '|' )) --exclude="("$( echo ${EXCLUDE_MUFFET} | tr ' ' '|' )")" ${URL}
         env:
           EXCLUDE-LYCHEE: |
             ${{ env.LYCHEE_IGNORE }}
