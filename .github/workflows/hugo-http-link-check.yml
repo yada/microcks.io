@@ -104,8 +104,8 @@ jobs:
       # Check broken links in the Hugo site using muffet script
       - name: Check Broken Links With Muffet
         run: |
-          EXCLUDE-LYCHEE: ${{ env.LYCHEE_IGNORE }} | tr '\n' '|' | sed 's/|$//'
-          EXCLUDE-MUFFET: ${EXCLUDE_UPDATED} | tr '\n' '|' | sed 's/|$//'
+          EXCLUDE-LYCHEE: echo ${{ env.LYCHEE_IGNORE }} | tr '\n' '|' | sed 's/|$//'
+          EXCLUDE-MUFFET: echo ${EXCLUDE_UPDATED} | tr '\n' '|' | sed 's/|$//'
           muffet ${ARGS} --exclude=(${EXCLUDE-LYCHEE}) ${URL}
         env:
           ARGS: '--buffer-size=8192 --color=always --header="User-Agent:curl/7.54.0" --timeout=42'
