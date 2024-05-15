@@ -82,7 +82,7 @@ jobs:
           # done < .lycheeignore
         
           #echo "LYCHEE-IGNORE=$(cat .lycheeignore | grep -E '^http|^https' | awk -F '^http://|^https://' '{print $2}' | sed 's/\/$//')" >> $GITHUB_ENV
-        #continue-on-error: true
+        continue-on-error: true
 
       # Check broken links in the Hugo site using muffet script
       - name: Check Broken Links With Muffet
