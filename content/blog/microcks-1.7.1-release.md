@@ -39,7 +39,7 @@ And of course, you’re not limited to a single protocol binding! Microcks now s
 
 {{< image src="images/blog/microcks-1.7.1-protocols.png" alt="image" zoomable="true" >}}
 
-> Check out our updated [Event-based API test endpoints](https://microcks.io/documentation/using/tests/#event-based-apis) documentation and the complete guide for both protocols has also been published. See the [Amazon SQS/SNS Guide](https://microcks.io/documentation/guides/aws-sqs-sns-support/). For easier testing purposes, we also enabled the support of [LocalStack](https://localstack.cloud/). Thanks to [Xavier Escudero Sabadell](http://github.com/xescuder) 🙏 for the help in designing and testing this.
+> Check out our updated [Event-based API test endpoints](https://microcks.io/documentation/references/test-endpoints/#event-based-apis) documentation and the complete guide for both protocols has also been published. See the [Amazon SQS/SNS Guide](https://microcks.io/documentation/guides/usage/async-protocols/aws-sqs-sns-support/). For easier testing purposes, we also enabled the support of [LocalStack](https://localstack.cloud/). Thanks to [Xavier Escudero Sabadell](http://github.com/xescuder) 🙏 for the help in designing and testing this.
 
 
 ## API Specs goodies
@@ -74,7 +74,7 @@ You may have seen it some days ago as announced by our fellow [Hugo Guerrero](ht
 
 {{< image src="images/blog/docker-desktop-extension-0.2-list.png" alt="image" zoomable="true" >}}
 
-> The extension improves the [Microcks](https://microcks.io/) experience by offering a user-friendly interface, quick access to API mock URLs, and optional integration with popular tools such as Postman. [Grab it](https://hub.docker.com/layers/microcks/microcks-docker-desktop-extension/0.2.0images/sha256-270d1100ae936b54620d97b081669d93ea3685d399f7bbf42c5bc23fede744f1?context=explore) while it’s hot! 🔥 It will be updated really soon to `1.7.1`.
+> The extension improves the [Microcks](https://microcks.io/) experience by offering a user-friendly interface, quick access to API mock URLs, and optional integration with popular tools such as Postman. [Grab it](https://hub.docker.com/extensions/microcks/microcks-docker-desktop-extension) while it’s hot! 🔥 It will be updated really soon to `1.7.1`.
 
 
 ### Helm Chart enhancements
@@ -104,7 +104,7 @@ We reviewed how OpenAPI is detected when importing a new artifact, leading to a 
 
 ### Response templating with a parameter containing a dot
 
-This is again an issue that leads to more robust behavior of [Microcks templating engine](https://microcks.io/documentation/using/advanced/templates/) when sending parameters that may contain dots or other non-alphanumeric characters.
+This is again an issue that leads to more robust behavior of [Microcks templating engine](https://microcks.io/documentation/references/templates/) when sending parameters that may contain dots or other non-alphanumeric characters.
 
 > Thanks again to [Mathis Goichon](https://github.com/MathisGoichon) 🙏 for raising this one and helping validate the fix. 
 

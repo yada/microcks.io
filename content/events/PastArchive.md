@@ -18,9 +18,6 @@ https://www.youtube.com/@Microcks/videos
 - (🇫🇷)  [Paris JUG](https://www.parisjug.org/events/2024/02-13-microcks-et-api-agile/), meetup Fevrier 2024
 <iframe width="373" height="315" src="https://www.youtube.com/embed/MrPhe--agKw?si=TLlMJDQ05i_8D5NR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-- (🇫🇷) Hashicorp Radio Interview Fevrier 2022
-<iframe width="373" height="210" src="https://www.youtube.com/embed/QrMIY4E36dg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 - OpenShift Coffee Break - Microcks: API testing into a microservices world
 <iframe width="373" height="210" src="https://www.youtube.com/embed/j1vRuXNSsHo" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
@@ -68,9 +65,6 @@ https://developers.redhat.com/blog/2018/04/26/api-journey-idea-deployment-agile-
 ##### Workshops
 - An API Journey, from Mock to Deployment!<br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EWweP57as5U?si=xPi2EU69zg1LeNQa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-- API Lifecycle workshop<br>
-https://api-lifecycle-workshop.netlify.com/ 
 
 - “Day in the Life” workshop<br>
 https://github.com/RedHatWorkshops/dayinthelife-integration

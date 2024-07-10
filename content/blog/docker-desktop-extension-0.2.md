@@ -8,7 +8,7 @@ description: "Introducing Microcks Docker Desktop Extension 0.2: Enhanced Featur
 draft: false
 ---
 
-We are very excited to announce the availability of [Microcks Docker Desktop Extension](https://microcks.io/documentation/installing/docker-desktop-extension/) `0.2.0`! This new version of [our popular extension](https://dev.to/docker/9-docker-extensions-every-developer-must-try-1no2) includes exciting enhancements designed to simplify and streamline API mocking and testing processes. This release focused on improving the user experience and expanding the extension's capabilities. We are also excited to announce that we are increasing the frequency of our releases to provide our users with more frequent updates and features.
+We are very excited to announce the availability of [Microcks Docker Desktop Extension](/documentation/guides/installation/docker-desktop-extension/) `0.2.0`! This new version of [our popular extension](https://dev.to/docker/9-docker-extensions-every-developer-must-try-1no2) includes exciting enhancements designed to simplify and streamline API mocking and testing processes. This release focused on improving the user experience and expanding the extension's capabilities. We are also excited to announce that we are increasing the frequency of our releases to provide our users with more frequent updates and features.
 
 {{< image src="images/blog/docker-desktop-extension-0.2-feature.png" alt="image">}}
 
@@ -56,6 +56,6 @@ Microcks Docker Desktop Extension `0.2.0` marks a significant step forward in ou
 
 We are committed to your success and will continue to provide frequent updates and improvements. Try out the latest release, provide feedback, and watch for future enhancements to empower your API development journey further. Thank you for your support and confidence in Microcks! 
 
-Download the `0.2.0` version of the [Microcks Docker Desktop Extension](https://microcks.io/documentation/installing/docker-desktop-extension/) to try out the new features for yourself, and keep checking back for updates as we continue to improve it and turn it into a crucial tool for your API development journey.
+Download the `0.2.0` version of the [Microcks Docker Desktop Extension](https://microcks.io/documentation/guides/installation/docker-desktop-extension/) to try out the new features for yourself, and keep checking back for updates as we continue to improve it and turn it into a crucial tool for your API development journey.
 
 Happy API mocking and testing!

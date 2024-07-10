@@ -31,7 +31,7 @@ For each and every tenant, Microcks takes care of creating and managing dedicate
 {{< image src="images/blog/users-group-management.png" alt="image" zoomable="true" >}}
 
 
-> How to enable and manage a multi-tenant repository? It’s very easy! New options have been added into both Helm Chart and Operator. Check our updated documentation on [activation](https://microcks.io/documentation/using/organizing/#rbac-security-segmentation) and user [groups management](https://microcks.io/documentation/administrating/users/#group-membership).
+> How to enable and manage a multi-tenant repository? It’s very easy! New options have been added into both Helm Chart and Operator. Check our updated documentation on [activation](https://microcks.io/documentation/guides/administration/organizing-repository/#3-segmenting-management-responsibilities) and user [groups management](https://microcks.io/documentation/guides/administration/users/#2-groups-membership-management).
 
 
 ### Scaling labels using new APIMetadata
@@ -58,7 +58,7 @@ operations:
     delay: 50
 ```
 
-> For more information on that feature, checkout the [APIMetadata documentation](https://microcks.io/documentation/using/advanced/metadata/). You can also embed such metadata directly into your [OpenAPI](https://www.openapis.org/) or [AsyncAPI](https://asyncapi.com) specification file. Please pursue your reading to the “OpenAPI & AsyncAPI Specification support” section `😉`
+> For more information on that feature, checkout the [APIMetadata documentation](https://microcks.io/documentation/references/metadada/). You can also embed such metadata directly into your [OpenAPI](https://www.openapis.org/) or [AsyncAPI](https://asyncapi.com) specification file. Please pursue your reading to the “OpenAPI & AsyncAPI Specification support” section `😉`
 
 
 ## Developer & Installation eXperiences
@@ -75,7 +75,7 @@ $ docker-compose -f docker-compose.yml -f docker-compose-async-addon.yml up -d
 
 Aside from this new feature, come a lot of enhancements and capabilities suggested by the community. The most noticeable one are:
 
-* Connecting to a secured [external Kafka broker](https://microcks.io/documentation/installing/deployment-options/#the-kafka-broker-of-your-choice) (using TLS, MTLS or SCRAM) for producing mock messages,
+* Connecting to a secured [external Kafka broker](https://microcks.io/documentation/references/configuration/security-config/#reusing-an-existing-secured-kafka) (using TLS, MTLS or SCRAM) for producing mock messages,
 * NodePort ServiceType for Helm Chart install (in alternative to regular Ingress), thanks to [john873950](https://github.com/john873950) 🙏 contrib,
 * Resources values override for Keycloak and MongoDB, thanks to [john873950](https://github.com/john873950) 🙏 contrib,
 * Configuration of storage classes for Keycloak and MongoDB, thanks to [Mohammad Almarri](https://github.com/ALMARRI) 🙏 suggestion.
@@ -127,7 +127,7 @@ openapi: '3.1.0'
           return "Accepted"
 ```
 
-> Want to learn more about these extensions? Check our updated [OpenAPI support](https://microcks.io/documentation/using/openapi/#using-openapi-extensions) and [AsyncAPI support](https://microcks.io/documentation/using/asyncapi/#using-asyncapi-extensions) documentation. If embedding our extension into your spec doesn’t please you, you can still use the new `APIMetadata` document like explained in the “Repository organization” section 😇
+> Want to learn more about these extensions? Check our updated [OpenAPI support](https://microcks.io/documentation/references/artifacts/openapi-conventions/#openapi-extensions) and [AsyncAPI support](https://microcks.io/documentation/references/artifacts/asyncapi-conventions/#asyncapi-extensions) documentation. If embedding our extension into your spec doesn’t please you, you can still use the new `APIMetadata` document like explained in the “Repository organization” section 😇
 
 And of course we produced a number of fixes or enhancements thanks to user feedback that deal with edge cases of these specifications. Let mentioned: 
 
@@ -142,10 +142,10 @@ Community contributions do not come only from feature requests, bug issues and o
 
 We’d like to thank the following awesome people:
 
-* [Tamimi Ahmad](https://github.com/TamimiGitHub) 🙏 that invited us to talk about Microcks at the [Solace Community Lightning Talk](https://solace.com/event/solace-community-lightning-talks-2-0/) where we had the opportunity to demonstrate our work. Recording is available on [YouTube](https://www.youtube.com/watch?v=dMnk-jCkBOo),
-* The [Solace Dev Community](https://solace.community/)  and [Tamimi Ahmad](https://github.com/TamimiGitHub) 🙏for working on a joint demonstration with their PubSub+ Event Portal product. The demo has been played 2 times during Solace Office Hours at Kafka Summit Americas - recording is available on [KafkaSummit.io](https://kafkasummit.io/virtual-exhibitor/?v0326b739525aaf6a5900c153ea6485e67109462e8db159b156161fc07c7e3d8016769932b4c0398e64b5ea52edb3d1c5=8CE57701960DC72CFEEC2914486E877EC8E915BB1B8FF22FD4AF4DB0EA864B2A38BC29BDAE9AB1040E3570683DD40382) 😉
-* [Cloud Nord](https://www.cloudnord.fr/programme2021) 🙏 team for inviting us to talk at their latest event. Recording to come very soon but for french folks only! 
-* [Hugo Guerrero](https://github.com/hguerrero ) 🙏for having two talks on Kafka Summit APAC and Americas 2021! Be sure to watch the replay of its [Automated Apache Kafka Mocking and Testing with AsyncAPI](https://kafkasummit.io/session-virtual/?v26dd132ae80017cdaf764437c30ebe6f10c1b1eeaab01165e44366654b368dfaeab6baf7e386a642ecb238989334530e=E64EFD7272E5F3345043B3D69A4D2BBAF2C9E410AC7D32BAC53CCA4ECB3CFD7412D76A6F755F2261D4D4E5CA294B3EAA). Congrats mate! 💪
+* [Tamimi Ahmad](https://github.com/TamimiGitHub) 🙏 that invited us to talk about Microcks at the [Solace Community Lightning Talk](https://solace.community/discussion/838/solace-community-lightning-talk-2-0-is-here) where we had the opportunity to demonstrate our work. Recording is available on [YouTube](https://www.youtube.com/watch?v=dMnk-jCkBOo),
+* The [Solace Dev Community](https://solace.community/)  and [Tamimi Ahmad](https://github.com/TamimiGitHub) 🙏 for working on a joint demonstration with their PubSub+ Event Portal product. The demo has been played 2 times during Solace Office Hours at [Kafka Summit Americas](https://www.kafka-summit.org/) 😉
+* [Cloud Nord](https://www.youtube.com/watch?v=KlnJrO29B0M&t=0s) 🙏 team for inviting us to talk at their latest event. Recording to come very soon but for french folks only! 
+* [Hugo Guerrero](https://github.com/hguerrero) 🙏 for having two talks on Kafka Summit APAC and Americas 2021! Be sure to watch the replay of its [Automated Apache Kafka Mocking and Testing with AsyncAPI](https://www.confluent.io/events/kafka-summit-americas-2021/automated-apache-kafka-mocking-and-testing-with-asyncapi/). Congrats mate! 💪
 
 
 ## What’s coming next?

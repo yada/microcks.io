@@ -40,11 +40,11 @@ Installing our new Docker Desktop Extension only takes three simple steps for Mi
 
 3. Choose Microcks, install and launch it and you are ready to go 🏆🤩
 
-As we are convinced that a video is worth a million words, please see the latest entry below or on our [youtube channel](https://www.youtube.com/c/Microcks/videos) for both a 3 minutes demonstration video of docker extension installation and our new [Direct API](https://microcks.io/documentation/using/dynamic/) feature 😘
+As we are convinced that a video is worth a million words, please see the latest entry below or on our [youtube channel](https://www.youtube.com/c/Microcks/videos) for both a 3 minutes demonstration video of docker extension installation and our new [Direct API](https://microcks.io/documentation/guides/usage/direct-api/) feature 😘
 
 {{< youtube id="E8rjUwznO-Q" autoplay="false" >}}
 
-> Because Docker Desktop on Linux runs on [top of a VM](https://docs.docker.com/desktop/install/linux-install/) if you want a native way to install Microcks in Linux and are not afraid of CLI, keep in mind that we also support [Docker-compose ](https://microcks.io/documentation/installing/docker-compose/)and [Podman-compose](https://microcks.io/documentation/installing/podman-compose/). 😇
+> Because Docker Desktop on Linux runs on [top of a VM](https://docs.docker.com/desktop/install/linux-install/) if you want a native way to install Microcks in Linux and are not afraid of CLI, keep in mind that we also support [Docker-compose ](https://microcks.io/documentation/guides/installation/docker-compose/)and [Podman-compose](https://microcks.io/documentation/guides/installation/podman-compose/). 😇
 
 Kudos 👏 to [Hugo Guerrero](https://github.com/hguerrero) 🙏 from [Red Hat](https://www.redhat.com/) for having contributed to the code and doing the super nice video on ”Getting Started in 3 minutes - Docker Desktop Extension”. Well done mate! 💪
 

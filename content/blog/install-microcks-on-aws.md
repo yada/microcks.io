@@ -8,7 +8,7 @@ description: "Install Microcks on AWS for a test drive 🧪"
 draft: false
 ---
 
-Whilst we recommend installing Microcks on Kubernetes for easy management and enhanced capabilities, it can also be deployed onto a regular Virtual Machine. This post details how you can setup Microcks onto an AWS EC2 instance if you’re familiar with this environment and want a quick test drive. It takes something like 6–7 minutes to complete from end-to-end. It’s an illustration of [official setup documentation](https://microcks.io/documentation/installing/docker-compose/#server-installation).
+Whilst we recommend installing Microcks on Kubernetes for easy management and enhanced capabilities, it can also be deployed onto a regular Virtual Machine. This post details how you can setup Microcks onto an AWS EC2 instance if you’re familiar with this environment and want a quick test drive. It takes something like 6–7 minutes to complete from end-to-end. It’s an illustration of [setup documentation using Docker Compose](https://microcks.io/documentation/guides/installation/docker-compose/).
 
 {{< image src="images/blog/microcks-on-aws.png" alt="image" zoomable="true" >}}
 
@@ -43,7 +43,7 @@ Once Microcks is running on the EC2 instance, you just have to open your favorit
 
 {{< youtube id="mZEr1eoQ5RQ" autoplay="false" >}}
 
-And here we are! In no time! Ready to go and to import some OpenAPI contracts, Postman Collection or SoapUI Projects within the installation. And pretty soon [AsyncAPI](https://youtu.be/uZaWAekvUz4)! Have a look at [Getting Started using Microcks](https://microcks.io/documentation/getting-started/#using-microcks) for importing samples.
+And here we are! In no time! Ready to go and to import some OpenAPI contracts, Postman Collection or SoapUI Projects within the installation. And pretty soon [AsyncAPI](https://youtu.be/uZaWAekvUz4)! Have a look at [Getting Started using Microcks](https://microcks.io/documentation/tutorials/getting-started/#using-microcks) for importing samples.
 
 Do you think Microcks as a Service directly from AWS Marketplace would be of great help for you or your team? Please let us know what you think voting and commenting [on this issue](https://github.com/microcks/microcks/issues/232).
 

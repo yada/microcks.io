@@ -49,7 +49,7 @@ In this situation, Microcks will dynamically create and manage corresponding des
 
 Finally, remember that our AsyncAPI v3 capabilities in Microcks support JSON or Avro schema, with integration with Schema Registry - and can also be instrumented by our [AI Copilot](https://microcks.io/blog/microcks-1.8.0-release/#introducing-ai-copilot) 🤖 to help you quickly generate rich mock datasets!
 
-> Be sure to check our [updated AsyncAPI mocking and testing](https://microcks.io/documentation/using/asyncapi/) documentation.
+> Be sure to check our [updated AsyncAPI mocking and testing](https://microcks.io/documentation/references/artifacts/asyncapi-conventions/) documentation.
 
 
 ## Observability with OpenTelemetry and all
@@ -99,7 +99,7 @@ We’d like to thank the following awesome people:
 
 * [Josh Long](https://twitter.com/starbuxman) 🙏 for this fantastic [Coffee + Software Livestream](https://www.youtube.com/watch?v=VsTj0hyYiAA&t=1s) reloaded, we’ve recorded together to demo our Testcontainers support and Spring AOT features,
 * [Apoorva64](https://github.com/Apoorva64) 🙏 for his numerous contributions like [Fixes on Cors suppor](https://github.com/microcks/microcks/issues/1082)t or [Documentation rendering with multi-OpenAPI files](https://github.com/microcks/microcks/issues/1067) issues. We know that many others are coming 😉
-* [Leon Nunes](https://www.linkedin.com/in/leon-nunes/) 🙏 from [Solo.io](Solo.io) for talking about [Mocking GraphQL with Microcks](https://www.youtube.com/watch?v=_Tfed1VJTHU) at the GraphQL Bangkok event,
+* [Leon Nunes](https://www.linkedin.com/in/leon-nunes/) 🙏 from [Solo.io](https://solo.io) for talking about [Mocking GraphQL with Microcks](https://www.youtube.com/watch?v=_Tfed1VJTHU) at the GraphQL Bangkok event,
 * [Tsiry Sandratraina](https://www.linkedin.com/in/tsiry-sandratraina/) 🙏 from [FluentCI](https://fluentci.io/) for its [Dagger Microcks module](https://daggerverse.dev/mod/github.com/fluent-ci-templates/microcks-pipeline@49e9bd8005a27df55de8c42acc4a1841986a1518) allowing you to integrate Microcks into your [Dagger](https://dagger.io) pipelines,
 * And our own [Hugo Guerrero](https://github.com/hguerrero) 🙏 for telling the Microcks story of joining the CNCF  at the[ KCD México](https://twitter.com/kcd_mexico) event.
 

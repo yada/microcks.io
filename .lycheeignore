@@ -9,6 +9,22 @@ https://use.fontawesome.com/
 # Any other ports should be regarded as suspicious and undergo examination by the checker.
 http://localhost:8080/
 
+# Exclude Microcks HELM Chart repo as it is a non-browsable URL
+https://microcks.io/helm
+
+# Avoid some medium.com URLs since the site appears to be sensitive to concurrent requests...
+https://medium.com/@lbroudoux/
+
+# The AMQP website certificate has expired on June 3rd, 2024, so let's exclude it
+https://www.amqp.org/
+
+# This can be ignored and excluded as it is in a template layout file... not a static external URL...
+# By the way, this layout has not been used on the website so far. We keep it as part of the template, just in case.
+https://facebook.com/sharer/sharer.php?u={{%20$url%20}}
+
+# Add valid URLs here, when the broken link error is due to web site rate limit... 
+https://mvnrepository.com/repos/central
+
 # Exclude GitHub profiles that are accurate and have been manually verified to prevent error reporting
 # caused by GitHub rate limits, ex: "Failed: Network error: Too Many Requests"
 https://github.com/sarasensible
@@ -28,10 +44,17 @@ https://github.com/timchase01
 https://github.com/jonaslagoni
 https://github.com/redben
 https://github.com/imod
+https://github.com/TamimiGitHub
+https://github.com/azplanlos
+https://github.com/soGit
+https://github.com/Snorkell
+https://github.com/mcruzdev
+https://github.com/Hassen-BENNOUR
+https://github.com/romg66
+https://github.com/marketplace?query=microcks
 
 # Exclude LinkedIn profiles that are accurate and have been manually verified to prevent error reporting
 # caused by LinkedIn rate limits, ex: "Failed: Network error: Too Many Requests"
-https://www.linkedin.com/in/appadoo-apoorva-srinivas-481367207/
 https://www.linkedin.com/in/rquinio/
 https://www.linkedin.com/in/tsiry-sandratraina/
 https://www.linkedin.com/in/janschenk/
@@ -40,3 +63,18 @@ https://www.linkedin.com/in/kinlane/
 https://www.linkedin.com/in/joshgav/
 https://www.linkedin.com/in/abhinavasthana/
 https://www.linkedin.com/in/colin-e-griffin/
+https://www.linkedin.com/in/piotrminkowski/
+https://www.linkedin.com/in/ludovic-pourrat/
+https://www.linkedin.com/in/jerome-delabarre-a350848/
+https://www.linkedin.com/in/madihar/
+https://www.linkedin.com/in/hugoguerrero/
+https://www.linkedin.com/in/nicolasmasse/
+https://www.linkedin.com/in/abbybangser/
+https://www.linkedin.com/in/alainpham/
+https://linkedin.com/in/carol-gschwend-207650134/
+https://www.linkedin.com/in/mathieu-amblard/
+https://www.linkedin.com/in/appadoo-apoorva-srinivas-481367207/
+https://www.linkedin.com/in/julienbreux/
+https://fr.linkedin.com/in/nicolas-ehrman-629b8910
+https://www.linkedin.com/in/kevin-viet-863a137/
+https://www.linkedin.com/in/pedrogudeteira/

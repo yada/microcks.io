@@ -7,7 +7,7 @@ printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
 # Build the project.
 export HUGO_ENV=production
-hugo --environment production
+hugo --environment production --minify
 
 # Go To Public folder
 cd public
@@ -22,5 +22,10 @@ if [ -n "$*" ]; then
 fi
 git commit -m "$msg"
 
-# Push source and build repos.
+# Push Public folder to microcks.github.io repo
+git push origin master
+
+# Go up to update the Public symlink
+cd ..
+git commit -m "$msg" public
 git push origin master

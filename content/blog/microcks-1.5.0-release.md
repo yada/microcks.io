@@ -30,7 +30,7 @@ We are big supporters of the **[contract-first approach](https://microcks.io/blo
 
 {{< image src="images/blog/microcks-1.5.0-graphql-artifacts.png" alt="image" zoomable="true" >}}
 
-> Check out our [GraphQL usage for Microcks](https://microcks.io/documentation/using/graphql/) documentation that illustrates how GraphQL Schema specifications and Postman Collection can be combined and used together. You’ll see that defining mocks and tests are as easy as describing requests and responses expectations using JSON. Microcks will implement all the specificities of GraphQL fetching undercover.
+> Check out our [GraphQL usage for Microcks](https://microcks.io/documentation/references/artifacts/graphql-conventions/) documentation that illustrates how GraphQL Schema specifications and Postman Collection can be combined and used together. You’ll see that defining mocks and tests are as easy as describing requests and responses expectations using JSON. Microcks will implement all the specificities of GraphQL fetching undercover.
 
 > If you are a hands-on person and need a more detailed walkthrough of available features, we recommend you also read our “[GraphQL features in Microcks: what to expect?](https://microcks.io/blog/graphql-features-what-to-expect/)” blog post. It illustrates the mocking and testing specificities we introduced to support GraphQL queries semantics. 
 
@@ -89,7 +89,7 @@ We investigated those issues with the community and identified enhancement topic
 * The first ones were about the JVM ergonomics that haven’t been updated with the upgrade to Java 11. With new settings, the JVM is now fully aware that it runs in a container and in Kubernetes so that it can accurately auto-tune the various `-X` startup flags,
 * The second one was defining a dedicated `startupProbe` in our Kubernetes manifest to avoid pod restarts on bootstrap without penalizing failure detections when the pod has started.
 
-> These enhancements have been applied to both our [Helm Chart](https://microcks.io/documentation/installing/kubernetes/) and [Operator](https://microcks.io/documentation/installing/operator/) manifests. We noticed a speed-up of `30%` of the bootstrap time when we applied the enhanced version on our test clusters using the default resources constraints. The new probe avoids unintentional restarts in very constrained environments and, hence, Kubernetes scheduler saturation. We planned to publish a detailed blog post on our findings and results, so stay tuned 😉
+> These enhancements have been applied to both our [Helm Chart](https://microcks.io/documentation/references/configuration/helm-chart-config/) and [Operator](https://microcks.io/documentation/references/configuration/operator-config/) manifests. We noticed a speed-up of `30%` of the bootstrap time when we applied the enhanced version on our test clusters using the default resources constraints. The new probe avoids unintentional restarts in very constrained environments and, hence, Kubernetes scheduler saturation. We planned to publish a detailed blog post on our findings and results, so stay tuned 😉
 
 ### Security updates
 

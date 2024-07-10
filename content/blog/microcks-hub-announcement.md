@@ -52,7 +52,7 @@ This is where Microcks and our new [hub.microcks.io](https://hub.microcks.io) co
 
 For Microcks users, it just involves 3 single steps:
 
-1. [Setup](https://microcks.io/documentation/installing/) (if not done already 🥇) a private internal Microcks instance,
+1. [Setup](https://microcks.io/documentation/guides/installation/) (if not done already 🥇) a private internal Microcks instance,
 2. Browse [hub.microcks.io](https://hub.microcks.io) to discover the API you’re interested in and import the corresponding assets that creates mocks and test suite into your instance,
 
 {{< image src="images/blog/microcks-hub-announcement-oba.png" alt="image" zoomable="true" >}}
@@ -61,7 +61,7 @@ For Microcks users, it just involves 3 single steps:
 
 3. From Microcks, launch tests on your implementation to check conformance. As the hub wraps different kinds of artifacts, you can validate: contract syntactic rules checking OpenAPI schema conformance,
 **OR**
-business behavior rules using [Postman Collection](https://microcks.io/documentation/using/postman/) test scripts.
+business behavior rules using [Postman Collection](https://microcks.io/documentation/references/artifacts/postman-conventions/) test scripts.
 
 It has neither been as easy to do Open Banking nor to follow the standard and regulatory requirements as using Microcks and the community API Mocks and Test suites 🚀 We love and are happy to support #fintech #startups 😘
 
@@ -76,7 +76,7 @@ So we work hand in hand with our friends from HashiCorp to provide full Mocks an
 
 {{< image src="images/blog/microcks-hub-announcement-terraform.png" alt="image" zoomable="true" >}}
 
-So now, any Terraform Enterprise customers can easily create a sandbox and test all their existing tooling on the latest release or pre-release and modify their consumer code accordingly. Last but not the least, they can integrate Microcks in their [existing CI/CD pipeline](https://microcks.io/documentation/automating/) to fully automate this tedious process 👍
+So now, any Terraform Enterprise customers can easily create a sandbox and test all their existing tooling on the latest release or pre-release and modify their consumer code accordingly. Last but not the least, they can integrate Microcks in their [existing CI/CD pipeline](https://microcks.io/documentation/guides/automation/) to fully automate this tedious process 👍
 
 Terraform Enterprise mocks repository is available here: [https://github.com/nehrman/terraform-enterprise](https://github.com/nehrman/terraform-enterprise)
 
@@ -84,7 +84,7 @@ Terraform Enterprise mocks repository is available here: [https://github.com/neh
 
 # How does it work?
 
-Microcks leverages standard specifications and formats like [Swagger](https://microcks.io/documentation/using/swagger/) (aka OpenAPI v2), [OpenAPI v3](https://microcks.io/documentation/using/openapi/), [AsyncAPI](https://microcks.io/documentation/using/asyncapi/), [Postman Collection](https://microcks.io/documentation/using/postman/), [GRPC/Protobuf files](https://microcks.io/documentation/using/grpc/), [GraphQL](https://microcks.io/documentation/using/graphql/), legacy [SoapUI](https://microcks.io/documentation/using/soapui/),... Adding them to the Hub is just a matter of adding some metadata using a manifest.
+Microcks leverages standard specifications and formats like [Swagger](https://microcks.io/documentation/references/artifacts/swagger-conventions/) (aka OpenAPI v2), [OpenAPI v3](https://microcks.io/documentation/references/artifacts/openapi-conventions/), [AsyncAPI](https://microcks.io/documentation/references/artifacts/asyncapi-conventions/), [Postman Collection](https://microcks.io/documentation/references/artifacts/postman-conventions/), [GRPC/Protobuf files](https://microcks.io/documentation/references/artifacts/grpc-conventions/), [GraphQL](https://microcks.io/documentation/references/artifacts/graphql-conventions/), legacy [SoapUI](https://microcks.io/documentation/references/artifacts/soapui-conventions/),... Adding them to the Hub is just a matter of adding some metadata using a manifest.
 
 To define these metadata, we’re introducing two concepts :
 
@@ -102,7 +102,7 @@ The [community-mocks repository](https://github.com/microcks/community-mocks) ho
 
 All the up to date information to contribute and publish your API on the Microcks hub is available here: [https://hub.microcks.io/doc/how-to-contribute](https://hub.microcks.io/doc/how-to-contribute)
 
-> BTW, in case you ask ⁉️ [hub.microcks.io](https://hub.microcks.io/) is not an alternative or competitor of [Postman Public Workspace](https://www.postman.com/postman/workspace/postman-public-workspace/overview). We really like the fact you can discover and play with APIs using Postman Workspaces and many Microcks users are using [Postman Collections](https://microcks.io/documentation/using/postman/). But Enterprises need to develop effective production APIs and this is where Microcks and Postman make perfect sense together 🤝 
+> BTW, in case you ask ⁉️ [hub.microcks.io](https://hub.microcks.io/) is not an alternative or competitor of [Postman Public Workspace](https://www.postman.com/postman/workspace/postman-public-workspace/overview). We really like the fact you can discover and play with APIs using Postman Workspaces and many Microcks users are using [Postman Collections](https://microcks.io/documentation/references/artifacts/postman-conventions/). But Enterprises need to develop effective production APIs and this is where Microcks and Postman make perfect sense together 🤝 
 
 The Microcks Hub contribution can be seen as a complementary step that will allow to scale your API usage. It will allow to integrate your API adoption into every possible usage scenario required by your user (on-premises or cloud-based or off-line, on-demand mocking, conformance testing, etc)
 

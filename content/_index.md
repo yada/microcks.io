@@ -11,10 +11,10 @@ banner:
   button:
     enable : true
     #label : "Microcks is a Cloud Native Computing Sandbox project 🚀"
-    label : "♻️ 1.9.0 has just been released! 🚀"
+    label : "♻️ 1.9.1 has just been released! 🚀"
     #link : "https://microcks.io/blog/microcks-joining-cncf-sandbox/"
-    getstarted: ./documentation/getting-started/
-    link : "blog/microcks-1.9.0-release/"
+    getstarted: ./documentation/tutorials/getting-started/
+    link : "blog/microcks-1.9.1-release/"
 
 ################### Screenshot ########################
 screenshot:
@@ -87,7 +87,7 @@ service:
       button:
         enable : true
         label : "Check it out"
-        link : "documentation/using/"
+        link : "documentation/guides/usage"
         
     # service item loop
     - title : "Run anywhere, thanks to containers and Kubernetes"
@@ -97,7 +97,7 @@ service:
       button:
         enable : true
         label : "Check it out"
-        link : "documentation/installing/"
+        link : "documentation/guides/installation/"
         
 ################### tools_intregrate ########################
 tools_intregrate_sponsor:

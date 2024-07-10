@@ -48,7 +48,7 @@ And of course, you’re not limited to a single protocol binding! Microcks now s
 {{< image src="images/blog/microcks-1.7.0-protocols.png" alt="image" zoomable="true" >}}
 
 
-> Whereas mocking just requires adding the binding, testing needs to be familiar with new testing endpoints syntax. Check out our updated [Event-based API test endpoints](https://microcks.io/documentation/using/tests/#event-based-apis) documentation for that. Complete guides for both protocols have also been published. See the [NATS Guide](https://microcks.io/documentation/guides/nats-support/) and the [Google PubSub Guide](https://microcks.io/documentation/guides/googlepubsub-support/). Thanks to [Jonas Lagoni](https://github.com/jonaslagoni) 🙏 for the awesome contribution on NATS.
+> Whereas mocking just requires adding the binding, testing needs to be familiar with new testing endpoints syntax. Check out our updated [Event-based API test endpoints](https://microcks.io/documentation/references/test-endpoints/#event-based-apis) documentation for that. Complete guides for both protocols have also been published. See the [NATS Guide](https://microcks.io/documentation/guides/usage/async-protocols/nats-support/) and the [Google PubSub Guide](https://microcks.io/documentation/guides/usage/async-protocols/googlepubsub-support/). Thanks to [Jonas Lagoni](https://github.com/jonaslagoni) 🙏 for the awesome contribution on NATS.
 
 With this new release, we also introduce a new connector and importer for filling your Microcks repository with API artifacts: the [Postman Workspace](https://www.postman.com/product/workspaces/) connector. While it was previously necessary to export your Postman Collection as a file to later import it into Microcks, [Jason Miesionczek](https://github.com/JasonMiesionczek) 🙏 asks how we could directly integrate with collaborative workspaces from Postman to remove this extra step. 
 
@@ -56,7 +56,7 @@ With this new release, we also introduce a new connector and importer for fillin
 
 This new integration is now shipped into the `1.7.0` release and the best thing is that it’s totally transparent for users! Just create a new importer with a `https://api.getpostman.com/collections/:collection_uuid` URL pattern (or everything else that conforms to Postman Collection API 😉) and the format will be automatically detected by the importer.
 
-> Check out our [Connect Collection workspace](https://microcks.io/documentation/using/postman/#retrieve-collection-workspace-api-link) documentation that illustrates how to retrieve your Collection unique identifier and set up the secured connection through API keys if necessary.
+> Check out our [Connect Collection workspace](https://microcks.io/documentation/guides/integration/postman-workspace/) documentation that illustrates how to retrieve your Collection unique identifier and set up the secured connection through API keys if necessary.
 
 ## Feature enhancements
 
@@ -85,7 +85,7 @@ And the `Paris` response that now include direct reference to the request contex
 {"city": "Paris", "message": "{{ conditionMsg }}"}
 ```
 
-> Have a look at our new documentation on [Script dispatcher](https://microcks.io/documentation/using/advanced/dispatching/#script-dispatcher) to check typical examples on how to use it. Thanks to [Sébastien Fraigneau](https://github.com/sfraigneau) 🙏 for having suggested the request context features and to [Dorian Brun](https://github.com/dorianbrun) 🙏 for having explored usage with dynamic arrays (see [#751](https://github.com/microcks/microcks/issues/751))!
+> Have a look at our new documentation on [Script dispatcher](https://microcks.io/documentation/explanations/dispatching/#script-dispatcher) to check typical examples on how to use it. Thanks to [Sébastien Fraigneau](https://github.com/sfraigneau) 🙏 for having suggested the request context features and to [Dorian Brun](https://github.com/dorianbrun) 🙏 for having explored usage with dynamic arrays (see [#751](https://github.com/microcks/microcks/issues/751))!
 
 
 ### Enhanced response and message templates
@@ -105,7 +105,7 @@ Below you can see a sample on how a generated identifier can be put into the req
 }
 ```
 
-> For more information, check the [`put()` function](https://microcks.io/documentation/using/advanced/templates/#put-in-context) documentation. Also good to notice that for compatibility purposes, we now support the SoapUI notation for functions or context access within response templates. So your SoapUI `${ }` notation will be translated into Microcks double-mustaches notation `{{ }}` automatically 😉
+> For more information, check the [`put()` function](https://microcks.io/documentation/references/templates/#put-in-context) documentation. Also good to notice that for compatibility purposes, we now support the SoapUI notation for functions or context access within response templates. So your SoapUI `${ }` notation will be translated into Microcks double-mustaches notation `{{ }}` automatically 😉
 
 ## Technical upgrades 
 

@@ -13,7 +13,7 @@
         -->
         {{- template "author-image-name" dict "author" .Params.Author -}}
         
-        {{ range .Page.Params.Params.coauthors }}
+        {{ range .Page.Params.coauthors }}
           {{- template "author-image-name" dict "author" . -}}
         {{ end }}
         
@@ -26,12 +26,12 @@
         
         {{- template "author-full-card" dict "author" .Params.Author -}}
 
-        {{ range .Page.Params.Params.coauthors }}
+        {{ range .Page.Params.coauthors }}
           {{- template "author-full-card" dict "author" . -}}
         {{ end }}
         
         <!-- comments -->
-        {{ if site.DisqusShortname }}
+        {{ if .Site.Config.Services.Disqus.Shortname }}
         <div class="border p-5 rounded-2 mt-5">
           {{ template "_internal/disqus.html" . }}
         </div>

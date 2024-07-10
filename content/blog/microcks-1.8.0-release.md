@@ -46,7 +46,7 @@ Adding samples to an existing OpenAPI specification or Postman Collection - so t
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">🚨 Exciting <a href="https://twitter.com/hashtag/AI?src=hash&amp;ref_src=twsrc%5Etfw">#AI</a> features are coming to Microcks! 🧠<br><br>Watch our early prototype in action! See how to boost your <a href="https://twitter.com/hashtag/API?src=hash&amp;ref_src=twsrc%5Etfw">#API</a> development lifecycle with our AI Copilot on API <a href="https://twitter.com/hashtag/mocking?src=hash&amp;ref_src=twsrc%5Etfw">#mocking</a> and <a href="https://twitter.com/hashtag/testing?src=hash&amp;ref_src=twsrc%5Etfw">#testing</a> workflows! <a href="https://t.co/Zeoc07qaBB">pic.twitter.com/Zeoc07qaBB</a></p>&mdash; Microcks (@microcksio) <a href="https://twitter.com/microcksio/status/1676584280728715267?ref_src=twsrc%5Etfw">July 5, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 
-> This feature leverages [OpenAI](https://platform.openai.com/docs/api-reference) GPT models API underhood as a first implementation. We designed it to be adaptable and ready for other AI engines in the future. Check [this issue](https://github.com/microcks/microcks/issues/872) for more information.
+> This feature leverages [OpenAI](https://platform.openai.com/docs/api-reference/introduction) GPT models API underhood as a first implementation. We designed it to be adaptable and ready for other AI engines in the future. Check [this issue](https://github.com/microcks/microcks/issues/872) for more information.
 
 
 ### Support for HAR artifacts
@@ -61,7 +61,7 @@ That way, we think we’ve got Linux philosophy as it’s best, supporting the f
 2. Optionally curate the recorded content to remove noise and inappropriate data
 3. Integrate the resulting HAR into Microcks to reuse the captures as mock sources.
 
-> Using HAR in Microcks as a primary or secondary artifact is pretty straightforward. You only have to add a specific comment to your file to tell Microcks the name and version of the API it relates to. Check [our documentation](https://microcks.io/documentation/using/har/). 
+> Using HAR in Microcks as a primary or secondary artifact is pretty straightforward. You only have to add a specific comment to your file to tell Microcks the name and version of the API it relates to. Check [our documentation](https://microcks.io/documentation/references/artifacts/har-conventions/). 
 
 
 ### Test OAuth2 secured endpoints
@@ -70,7 +70,7 @@ Testing a secured API endpoint can be tedious as it often involves retrieving an
 
 We’ve introduced the support of OAuth2 [Client Credentials Flow](https://auth0.com/docs/get-started/authentication-and-authorization-flow/client-credentials-flow), [Refresh Token Rotation](https://auth0.com/docs/secure/tokens/refresh-tokens/refresh-token-rotation) and [Resource Owner Password Flow](https://auth0.com/docs/get-started/authentication-and-authorization-flow/resource-owner-password-flow) so that you have to provide your OAuth client information to Microcks, and it will handle the authorization flow for you - taking care of transmitting the retrieved token to your API or services under test.
 
-> This feature is now enabled via the Microcks UI, API, command line tool `microcks-cli`, and the different CI/CD integration. Check [our documentation](https://microcks.io/documentation/using/tests/#oauth2-authorization).
+> This feature is now enabled via the Microcks UI, API, command line tool `microcks-cli`, and the different CI/CD integration. Check [our documentation](https://microcks.io/documentation/references/test-endpoints/#oauth2).
 
 
 ### User experience enhancements
@@ -153,7 +153,7 @@ We’d like to thank the following awesome people:
 
 * [Josh Long](https://twitter.com/starbuxman) 🙏 for this fantastic [Coffee + Software Livestream](https://www.youtube.com/live/4ObZu9Gh9Xk?feature=shared&t=435) we’ve recorded together at Devoxx Belgium; and a big shout out to [Sebi](https://twitter.com/sebi2706) 🙏 for connecting people! 
 * [Mathieu Amblard](https://www.linkedin.com/in/mathieu-amblard/) 🙏 for its contribution to our [Testcontainers Java module](https://github.com/microcks/microcks-testcontainers-java/issues/18) regarding a JSON serialization issue,
-* [Apoorva256](https://github.com/apoorva256) 🙏 for its fix of [Absolute URL location override](https://github.com/microcks/microcks/pull/938) issue,
+* [Apoorva Srinivas](https://www.linkedin.com/in/appadoo-apoorva-srinivas-481367207) 🙏 for its fix of [Absolute URL location override](https://github.com/microcks/microcks/pull/938) issue,
 * [Erik Pragt](https://www.linkedin.com/in/erikpragt/) 🙏 for [Replacing JavaFaker with fresher DataFaker](https://github.com/microcks/microcks/pull/940) contribution. It’s great to keep updated libraries!
 * [Ritesh Shergill](https://www.linkedin.com/in/ritesh-shergill-a86a5115/) 🙏 for his excellent article [Mock API Testing with Microcks: Rock your API world with Real world tests](https://medium.com/@riteshshergill/mock-api-testing-with-microcks-rock-your-api-world-with-real-world-tests-af8b5df2ea6a), proposing a walkthrough on Microcks,
 * And a special shout out to [Ludovic Pourrat](https://www.linkedin.com/in/ludovic-pourrat/) 🙏 for its ApiDays London on [Why API Metrics matter in APIOps?](https://www.apidays.global/london/) Ludovic explains how Lombard Odier injects production performance metrics into Microcks to better simulate API real-life behavior. He also explains how our Conformance metrics become one of their lead indicators or API health! 💪

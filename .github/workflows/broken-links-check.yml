@@ -1,0 +1,18 @@
+name: Broken Links Check
+on: workflow_dispatch
+
+jobs:
+  broken-links-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Check
+        uses: ruzickap/action-my-broken-link-checker@v2
+        with:
+          url: https://microcks.io
+          pages_path: public
+          cmd_params: '--exclude=(twitter.com|linkedin.com|github.com|fonts.gstatic.com|fonts.googleapis.com|use.fontawesome.com|googletagmanager.com) --buffer-size=8192 --max-connections-per-host=5 --color=always --rate-limit=5 --header="User-Agent:curl/7.54.0" --skip-tls-verification'
