@@ -51,7 +51,8 @@ jobs:
         # This step will only run if the lychee action fails (exit code 1)
         # This is the case if there are broken links  
         # if: env.lychee_exit_code == 1
-        if: env.has_errors == 'true'
+        #if: env.has_errors == 'true'
+        if: env.lychee_exit_code != 0
         id: create_issue
         uses: peter-evans/create-issue-from-file@e8ef132d6df98ed982188e460ebb3b5d4ef3a9cd # v5.0.1
         with:
