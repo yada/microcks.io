@@ -49,7 +49,8 @@ jobs:
       - name: Create Issue From File
         # This step will only run if the lychee action fails (exit code 1)
         # This is the case if there are broken links  
-        if: env.lychee_exit_code == 1
+        # if: env.lychee_exit_code == 1
+        if: env.has_errors == 'true'
         id: create_issue
         uses: peter-evans/create-issue-from-file@e8ef132d6df98ed982188e460ebb3b5d4ef3a9cd # v5.0.1
         with:
@@ -59,15 +60,18 @@ jobs:
 
       # Store the issue number in an environment variable 
       - name: Store Issue Number
-        if: steps.create_issue.outputs.issue-number
+        #if: steps.create_issue.outputs.issue-number
+        if: steps.create_issue.outputs.issue-number != ''
         run: echo "ISSUE_NUMBER=${{ steps.create_issue.outputs.issue-number }}" >> $GITHUB_ENV
 
       # Add a comment to the issue with the contribution message  
       - name: Add contribution message as new comment
-        if: ${{ env.ISSUE_NUMBER }} is not null
-        run: gh issue comment "$NUMBER" --body-file "$BODY"
+        #if: ${{ env.ISSUE_NUMBER }} is not null
+        if: env.ISSUE_NUMBER != ''
+        #run: gh issue comment "$NUMBER" --body-file "$BODY"
+        run: gh issue comment "$ISSUE_NUMBER" --body-file "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          NUMBER: ${{ env.ISSUE_NUMBER }}
+          #NUMBER: ${{ env.ISSUE_NUMBER }}
           BODY: "./.github/contribution_message.md"
