@@ -41,6 +41,20 @@ jobs:
           # Don't fail action on broken links
           fail: false
 
+      # Debug: Show report contents
+      - name: Debug Report
+        run: cat ./link-checker/report.md
+      
+      # Check if report contains regex errors or broken links
+      - name: Check for Errors
+        id: check_errors
+        run: |
+          if grep -q "Error:" ./link-checker/report.md || grep -q "✗" ./link-checker/report.md; then
+            echo "has_errors=true" >> $GITHUB_ENV
+          else
+            echo "has_errors=false" >> $GITHUB_ENV
+          fi
+        
       # Format the date for the issue title and store it in an environment variable
       - name: Format Date
         id: format_date
@@ -52,6 +66,11 @@ jobs:
         # This is the case if there are broken links  
         # if: env.lychee_exit_code == 1
         #if: env.has_errors == 'true'
+        # DEBUG
+        echo "env.lychee_exit_code: "
+        echo env.lychee_exit_code
+        echo "env.has_errors: "
+        echo env.has_errors
         if: env.lychee_exit_code != 0
         id: create_issue
         uses: peter-evans/create-issue-from-file@e8ef132d6df98ed982188e460ebb3b5d4ef3a9cd # v5.0.1
@@ -66,6 +85,10 @@ jobs:
         if: steps.create_issue.outputs.issue-number != ''
         run: echo "ISSUE_NUMBER=${{ steps.create_issue.outputs.issue-number }}" >> $GITHUB_ENV
 
+      # DEBUG
+        echo "steps.create_issue.outputs.issue-number: "
+        echo steps.create_issue.outputs.issue-number
+        
       # Add a comment to the issue with the contribution message  
       - name: Add contribution message as new comment
         #if: ${{ env.ISSUE_NUMBER }} is not null
