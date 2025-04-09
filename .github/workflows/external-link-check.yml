@@ -66,11 +66,6 @@ jobs:
         # This is the case if there are broken links  
         # if: env.lychee_exit_code == 1
         #if: env.has_errors == 'true'
-        # DEBUG
-        echo "env.lychee_exit_code: "
-        echo env.lychee_exit_code
-        echo "env.has_errors: "
-        echo env.has_errors
         if: env.lychee_exit_code != 0
         id: create_issue
         uses: peter-evans/create-issue-from-file@e8ef132d6df98ed982188e460ebb3b5d4ef3a9cd # v5.0.1
@@ -85,10 +80,6 @@ jobs:
         if: steps.create_issue.outputs.issue-number != ''
         run: echo "ISSUE_NUMBER=${{ steps.create_issue.outputs.issue-number }}" >> $GITHUB_ENV
 
-      # DEBUG
-        echo "steps.create_issue.outputs.issue-number: "
-        echo steps.create_issue.outputs.issue-number
-        
       # Add a comment to the issue with the contribution message  
       - name: Add contribution message as new comment
         #if: ${{ env.ISSUE_NUMBER }} is not null
